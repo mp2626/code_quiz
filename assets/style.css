@@ -3,8 +3,7 @@
 --text: red;
 }
 
-body {
-    display: flex;
+body{
     flex-direction: column;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
 }
@@ -19,12 +18,22 @@ header div {
     border-radius: 40px;
 }
 
-header div:nth-of-type(1){
+.welcomePage {
+    display: flex;
+    text-align: center;
+}
+
+.questionPage {
+    display: flex;
+    text-align: center;
+}
+
+.questionPage header div{
     float: left;
 }
 
-header div:nth-of-type(2){
-    float: right;
+.welcomePage header div{
+    float: left;
 }
 
 
