@@ -10,7 +10,7 @@ const userHighScore = {
 }
 
 let timerClock = "";
-let clock = ""
+let clock = "";
 let questionIndex = 0;
 let yourScore = "";
 let gameOver = false;
@@ -67,7 +67,6 @@ function startTimer() {
 
 // fetch and render questions
 function renderQuestions() {
-
     if (questionIndex !== 4) {
         answers.innerHTML = ""
         questionScreen.textContent = questionArray[questionIndex].question;
@@ -83,7 +82,6 @@ function renderQuestions() {
 
 // compare questions event and reset index?
 function checkQuestion(event) {
-
     if (questionIndex !== 4) {
         var check = event.target
         console.log(check)
