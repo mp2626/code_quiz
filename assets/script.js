@@ -1,25 +1,37 @@
 // vars for game
-var timer = document.querySelector("#timer")
-var startQuiz = document.querySelector(".startQuiz")
-var questionScreen = document.querySelector("#questions")
+const timer = document.querySelector("#timer");
+const startQuiz = document.querySelector(".startQuiz");
+const questionScreen = document.querySelector("#questions");
+const answers = document.querySelector("#answers");
 
 
 
-var timerClock = ""
-var questionIndex = 0
-var gameOver = false
+let timerClock = "";
+let questionIndex = 0;
+let yourScore = "";
+let gameOver = false;
 
 
-var questionArray = [
+const questionArray = [
     {
         question: "What is the meaning of API?",
-        choices: ["Asset Program Interface", "Application Programing Interference", "Application Programming Interface",],
+        choices: ["Asset Program Interface", "Application Programing Interference", "Application Programming Interface"],
         answer: "Application Programming Interface"
     },
     {
         question: "In order to call a function once defined, you should use which of the following?",
-        choices: ["[]", "()", "{}",],
+        choices: ["[]", "()", "{}"],
         answer: "()"
+    },
+    {
+        question: "Inside which HTML element do we put the JavaScript?",
+        choices: ["link", "script", "javascript"],
+        answer: "script"
+    },
+    {
+        question: "How do you create a function in JavaScript?",
+        choices: ["function:muFunction()", "function = myFunction()", "function myFunction()"],
+        answer: "function myFunction()"
     }
 ]
 
@@ -27,7 +39,7 @@ var questionArray = [
 
 function startGame() {
     startQuiz.style.display = "none";
-    timerClock = 10;
+    timerClock = 60;
     startTimer()
 }
 
@@ -49,13 +61,47 @@ function startTimer() {
 // fetch and render questions
 
 function renderQuestions() {
-    questionScreen.textContent = questionArray[questionIndex].question;
-    questionIndex++;
+
+    if (questionIndex !== 4) {
+        answers.innerHTML = ""
+        questionScreen.textContent = questionArray[questionIndex].question;
+        for (var i = 0; i < questionArray[questionIndex].choices.length; i++) {
+            var newLi = document.createElement("li");
+            newLi.innerHTML = questionArray[questionIndex].choices[i];
+            document.getElementById("answers").appendChild(newLi)
+        }
+    } else {
+        checkQuestion()
+    }
 }
 
-// render options and remove for next question https://www.w3schools.com/jsref/met_element_remove.asp
-
 // compare questions event and reset index?
+function checkQuestion(event) {
+
+    if (questionIndex !== 4) {
+        var check = event.target
+        console.log(check)
+        if (check.textContent == questionArray[questionIndex].answer) {
+            console.log("correct")
+            timerClock += 10
+        } else {
+            console.log("nah")
+            timerClock -= 10
+        }
+        questionIndex++;
+        renderQuestions()
+    } else {
+        closeGame()
+    }
+}
+
+function closeGame() {
+    answers.innerHTML = ""
+    questionScreen.innerHTML = ""
+    yourScore = timerClock;
+    console.log(yourScore);
+    // clear interval?
+}
 
 // add to score/remove
 
@@ -70,4 +116,5 @@ function renderQuestions() {
 // event listener 
 
 startQuiz.addEventListener("click", startGame)
+answers.addEventListener("click", checkQuestion)
 
