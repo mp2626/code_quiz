@@ -7,6 +7,7 @@ const answers = document.querySelector("#answers");
 
 
 let timerClock = "";
+let clock = ""
 let questionIndex = 0;
 let yourScore = "";
 let gameOver = false;
@@ -30,13 +31,12 @@ const questionArray = [
     },
     {
         question: "How do you create a function in JavaScript?",
-        choices: ["function:muFunction()", "function = myFunction()", "function myFunction()"],
+        choices: ["function:myFunction()", "function = myFunction()", "function myFunction()"],
         answer: "function myFunction()"
     }
 ]
 
 // timer function / check for win lose
-
 function startGame() {
     startQuiz.style.display = "none";
     timerClock = 60;
@@ -49,12 +49,7 @@ function startTimer() {
             timerClock--;
             timer.textContent = timerClock;
         }
-        else {
-            startQuiz.style.display = "";
-            clearInterval(clock)
-        }
     }, 1000)
-
     renderQuestions()
 }
 
@@ -99,8 +94,14 @@ function closeGame() {
     answers.innerHTML = ""
     questionScreen.innerHTML = ""
     yourScore = timerClock;
+    timer.textContent = yourScore
     console.log(yourScore);
-    // clear interval?
+    clearInterval(clock)
+    highScore()
+}
+
+function highScore() {
+    document.location.href = ""
 }
 
 // add to score/remove
