@@ -1,10 +1,13 @@
 // vars for game
 const timer = document.querySelector("#timer");
-const startQuiz = document.querySelector(".startQuiz");
+const startQuiz = document.querySelector("#startQuiz");
 const questionScreen = document.querySelector("#questions");
 const answers = document.querySelector("#answers");
+const enterButton = document.querySelector("#enter");
 
+const userHighScore = {
 
+}
 
 let timerClock = "";
 let clock = ""
@@ -36,6 +39,12 @@ const questionArray = [
     }
 ]
 
+// enter to game page
+
+function enterGame() {
+    document.location.href = "question.html"
+}
+
 // timer function / check for win lose
 function startGame() {
     startQuiz.style.display = "none";
@@ -48,13 +57,15 @@ function startTimer() {
         if (timerClock > 0) {
             timerClock--;
             timer.textContent = timerClock;
+        } else {
+            clearInterval(clock)
+            closeGame()
         }
     }, 1000)
     renderQuestions()
 }
 
 // fetch and render questions
-
 function renderQuestions() {
 
     if (questionIndex !== 4) {
@@ -95,13 +106,14 @@ function closeGame() {
     questionScreen.innerHTML = ""
     yourScore = timerClock;
     timer.textContent = yourScore
-    console.log(yourScore);
+    localStorage.setItem("CurrentUserScore", yourScore)
     clearInterval(clock)
     highScore()
 }
 
 function highScore() {
-    document.location.href = ""
+    document.location.href = "highscore.html"
+
 }
 
 // add to score/remove
@@ -116,6 +128,15 @@ function highScore() {
 
 // event listener 
 
-startQuiz.addEventListener("click", startGame)
-answers.addEventListener("click", checkQuestion)
+if (enterButton) {
+    enterButton.addEventListener("click", enterGame);
+}
+
+if (startQuiz) {
+    startQuiz.addEventListener("click", startGame);
+}
+
+if (answers) {
+    answers.addEventListener("click", checkQuestion);;
+}
 
