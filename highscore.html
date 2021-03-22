@@ -9,21 +9,18 @@
     <title>Document</title>
 </head>
 
-<body>
+<body id="highScoreBoard">
     <Section>
-        <h1>High Score Board</h1>
-        <form>
-            <div id="scoreNameInput">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Enter your name" />
-            </div>
+        <Div>
+            <h1>High Score Board</h1>
+            <h2>Your Score is <span id="userHighScore"></span></h2>
+        </Div>
+        <form id="scoreForm">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter your name" />
         </form>
     </Section>
-    <section>
-        <div id="userScore"></div>
-    </section>
-
-    <script src="./assets/script.js"></script>
+    <script src="./assets/highScore.js"></script>
 </body>
 
 </html>

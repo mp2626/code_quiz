@@ -5,16 +5,10 @@ const questionScreen = document.querySelector("#questions");
 const answers = document.querySelector("#answers");
 const enterButton = document.querySelector("#enter");
 
-const userHighScore = {
-
-}
-
 let timerClock = "";
 let clock = "";
 let questionIndex = 0;
 let yourScore = "";
-let gameOver = false;
-
 
 const questionArray = [
     {
@@ -104,27 +98,10 @@ function closeGame() {
     questionScreen.innerHTML = ""
     yourScore = timerClock;
     timer.textContent = yourScore
-    localStorage.setItem("CurrentUserScore", yourScore)
+    localStorage.setItem("currentUserScore", yourScore)
     clearInterval(clock)
-    highScore()
-}
-
-function highScore() {
     document.location.href = "highscore.html"
-
 }
-
-// add to score/remove
-
-
-// score reset and quiz reset
-
-
-// high score add name to ul
-
-
-
-// event listener 
 
 if (enterButton) {
     enterButton.addEventListener("click", enterGame);
