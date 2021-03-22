@@ -1,6 +1,8 @@
 :root {
---background: black;
 --text: red;
+--base:#E7EEED;
+--black: black;
+
 }
 
 body{
@@ -8,14 +10,33 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
 }
 
+button {
+    background-color: var(--black);
+    color: var(--base);
+    border-radius: 40px;
+    font-size: 15px;
+}
+
 header div {
     display: flex;
     flex-wrap: wrap;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: var(--background);
-    color: var(--text);
+    background-color: var(--black);
+    color: var(--base);
     border-radius: 40px;
+    font-size: 15px;
+}
+
+ul {
+    width: 550px;
+    padding: 0;
+}
+
+ul li {
+    list-style-type: none;
+    background-size: 50px;
+    padding-top: 5px;
 }
 
 .welcomePage {
@@ -26,6 +47,20 @@ header div {
 .questionPage {
     display: flex;
     text-align: center;
+}
+
+#highScoreBoard {
+    display: flex;
+    text-align: center;
+}
+
+#questions {
+    font-size: 25px;
+}
+
+.listSection {
+    display: flex;
+    justify-content: center;
 }
 
 .questionPage header div{

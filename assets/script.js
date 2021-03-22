@@ -42,7 +42,7 @@ function enterGame() {
 // timer function / check for win lose
 function startGame() {
     startQuiz.style.display = "none";
-    timerClock = 60;
+    timerClock = 40;
     startTimer()
 }
 
@@ -81,7 +81,7 @@ function checkQuestion(event) {
         console.log(check)
         if (check.textContent == questionArray[questionIndex].answer) {
             console.log("correct")
-            timerClock += 10
+            timerClock += 5
         } else {
             console.log("nah")
             timerClock -= 10

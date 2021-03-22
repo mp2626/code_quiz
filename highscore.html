@@ -10,16 +10,19 @@
 </head>
 
 <body id="highScoreBoard">
-    <Section>
-        <Div>
-            <h1>High Score Board</h1>
-            <h2>Your Score is <span id="userHighScore"></span></h2>
-        </Div>
-        <form id="scoreForm">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" placeholder="Enter your name" />
-        </form>
-    </Section>
+    <Main>
+        <h1>High Score Board</h1>
+        <h2>Your Score is <span id="userHighScore"></span></h2>
+        <section>
+            <form id="scoreForm">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name" />
+            </form>
+        </Section>
+        <section class="listSection">
+            <ul id="HsBoardDisplay"></ul>
+        </section>
+    </Main>
     <script src="./assets/highScore.js"></script>
 </body>
 
