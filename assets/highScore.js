@@ -5,7 +5,7 @@ const nameInput = document.querySelector("#name")
 const hsBoardDisplay = document.querySelector("#HsBoardDisplay")
 
 
-let highScoreArchive = []
+let highScoreArchive;
 
 let userHighScore = ""
 
@@ -18,6 +18,9 @@ function highScore() {
 
 function renderHighScore() {
     highScoreArchive = JSON.parse(localStorage.getItem("highScores"));
+    if (!highScoreArchive) {
+        highScoreArchive = []
+    }
 
     if (highScoreArchive) {
         highScoreArchive.forEach(function (item) {

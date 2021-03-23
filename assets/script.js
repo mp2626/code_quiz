@@ -1,4 +1,4 @@
-// vars for game
+
 const timer = document.querySelector("#timer");
 const startQuiz = document.querySelector("#startQuiz");
 const questionScreen = document.querySelector("#questions");
@@ -10,6 +10,7 @@ let clock = "";
 let questionIndex = 0;
 let yourScore = "";
 
+// questions for game
 const questionArray = [
     {
         question: "What is the meaning of API?",
@@ -33,19 +34,20 @@ const questionArray = [
     }
 ]
 
-// enter to game page
-
+// enters user to quiz game page from welcome screen
 function enterGame() {
     document.location.href = "question.html"
 }
 
-// timer function / check for win lose
+// hides the start quiz button and sets timer, then calls timer functions
 function startGame() {
     startQuiz.style.display = "none";
     timerClock = 40;
     startTimer()
 }
 
+// starts countdown time and updates on screen and calls render question function
+// stops clock when timer reaches 0 and calls close game function
 function startTimer() {
     clock = setInterval(function () {
         if (timerClock > 0) {
@@ -59,7 +61,7 @@ function startTimer() {
     renderQuestions()
 }
 
-// fetch and render questions
+// fetches and renders question, and calls checkQuestion if question idex reaches limit. CheckQuestion can close game.
 function renderQuestions() {
     if (questionIndex !== 4) {
         answers.innerHTML = ""
@@ -74,7 +76,9 @@ function renderQuestions() {
     }
 }
 
-// compare questions event and reset index?
+// Waits to be called from event listener, checks to see if question count has been exceeded.
+// Checks if choice matches correct answer.
+// Updates question count and renders next question or closes game.
 function checkQuestion(event) {
     if (questionIndex !== 4) {
         var check = event.target
@@ -92,6 +96,7 @@ function checkQuestion(event) {
         closeGame()
     }
 }
+
 
 function closeGame() {
     answers.innerHTML = ""

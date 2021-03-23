@@ -28,6 +28,14 @@ header div {
     font-size: 15px;
 }
 
+.questionPage header div{
+    float: left;
+}
+
+.welcomePage header div{
+    float: left;
+}
+
 ul {
     width: 550px;
     padding: 0;
@@ -63,13 +71,10 @@ ul li {
     justify-content: center;
 }
 
-.questionPage header div{
-    float: left;
+#answers:hover {
+cursor: pointer;
 }
 
-.welcomePage header div{
-    float: left;
-}
 
 
 
