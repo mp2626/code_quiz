@@ -10,11 +10,22 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
 }
 
-button {
-    background-color: var(--black);
-    color: var(--base);
-    border-radius: 40px;
-    font-size: 15px;
+/* centers text */
+.welcomePage {
+    display: flex;
+    text-align: center;
+}
+
+/* centers text */
+.questionPage {
+    display: flex;
+    text-align: center;
+}
+
+/* centers text */
+#highScoreBoard {
+    display: flex;
+    text-align: center;
 }
 
 header div {
@@ -28,11 +39,8 @@ header div {
     font-size: 15px;
 }
 
+/* floats timer to the left of the page */
 .questionPage header div{
-    float: left;
-}
-
-.welcomePage header div{
     float: left;
 }
 
@@ -41,27 +49,21 @@ ul {
     padding: 0;
 }
 
+/* removes bullet points form list */
 ul li {
     list-style-type: none;
     background-size: 50px;
     padding-top: 5px;
 }
 
-.welcomePage {
-    display: flex;
-    text-align: center;
+/* sets all buttons - bg black and tet white, adds a border radius  */
+button {
+    background-color: var(--black);
+    color: var(--base);
+    border-radius: 40px;
+    font-size: 15px;
 }
-
-.questionPage {
-    display: flex;
-    text-align: center;
-}
-
-#highScoreBoard {
-    display: flex;
-    text-align: center;
-}
-
+/* makes the questions font size large to stand out from answers */
 #questions {
     font-size: 25px;
 }
@@ -71,10 +73,25 @@ ul li {
     justify-content: center;
 }
 
-#answers:hover {
-cursor: pointer;
+/* changes pointer to a hand when hovering over answer choices */
+/* swaps color theme to highlight choices selected */
+#answers li:hover {
+    cursor: pointer;
+    background-color: var(--black);
+    color: var(--base);
+    border-radius: 20px;
 }
 
+/* adjust the location of the timer to improve UX for smaller devices */
+@media screen and (max-width: 576px) {
+.timer {
+    font-size: 10px;
+}
 
+#timerDiv {
+    display: flex;
+    justify-content: center;
+}
+}
 
 

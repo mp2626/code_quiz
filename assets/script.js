@@ -78,7 +78,7 @@ function renderQuestions() {
 
 // Waits to be called from event listener, checks to see if question count has been exceeded.
 // Checks if choice matches correct answer.
-// Updates question count and renders next question or closes game.
+// Updates question count and renders next question or calls closes game.
 function checkQuestion(event) {
     if (questionIndex !== 4) {
         var check = event.target
@@ -98,6 +98,8 @@ function checkQuestion(event) {
 }
 
 
+// clears out out choices, and records score in local memory.
+// Stops clock and directs user to highscore board.
 function closeGame() {
     answers.innerHTML = ""
     questionScreen.innerHTML = ""
@@ -108,14 +110,17 @@ function closeGame() {
     document.location.href = "highscore.html"
 }
 
+// waits for user to click enter on welcome screen and directs them to quiz page by calling enterGame
 if (enterButton) {
     enterButton.addEventListener("click", enterGame);
 }
 
+// waits for user to click start game button and then call start game function.
 if (startQuiz) {
     startQuiz.addEventListener("click", startGame);
 }
 
+// waits for user to click on li answers and then call checkQuestion
 if (answers) {
     answers.addEventListener("click", checkQuestion);;
 }
